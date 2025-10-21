@@ -1,242 +1,172 @@
-ResumeATS Pro - Resume Parser & ATS Scorer
-Overview
-ResumeATS Pro is a Java-based desktop application that helps job seekers optimize their resumes for Applicant Tracking Systems (ATS). The application analyzes resume content against job descriptions and provides a compatibility score based on keyword matching.
+ResumeATS Pro
+A professional Java-based desktop application that helps job seekers optimize their resumes for Applicant Tracking Systems (ATS). Analyze resume compatibility with job descriptions and improve your job application success rate.
 
-Features
-Current Features
-User authentication system with registration and login
+🚀 Features
+User Authentication - Secure registration and login system
 
-Modern dark-themed user interface
+Modern UI - Clean, dark-themed interface built with Java Swing and FlatLaf
 
-Resume file upload support (TXT format)
+Resume Analysis - Upload and parse resume content from text files
 
-Job description input and analysis
+ATS Scoring - Calculate compatibility scores between resumes and job descriptions
 
-ATS score calculation based on keyword matching
+Keyword Matching - Advanced keyword extraction and matching algorithm
 
-Detailed score breakdown with statistics
+Progress Tracking - Visual progress indicators for file processing
 
-Progress indicators for file processing
+Database Integration - MySQL backend for user management and data persistence
 
-MySQL database integration for user management
-
-Technical Specifications
-Backend: Java 11, JDBC, MySQL
-
-Frontend: Java Swing with FlatLaf for modern UI
-
-Build Tool: Apache Maven
-
-Database: MySQL 9.4
-
-Architecture: MVC pattern with Swing components
-
-Installation Guide
-Prerequisites
+📋 Prerequisites
 Java Development Kit (JDK) 11 or higher
 
-MySQL Server 9.4
+MySQL Server 8.0 or higher
 
 Apache Maven 3.6+
 
-Database Setup
-Start MySQL service
-
-Create the application database:
-
+🛠️ Installation
+1. Clone the Repository
+bash
+git clone https://github.com/yourusername/ResumeATS_Pro.git
+cd ResumeATS_Pro
+2. Database Setup
 sql
 CREATE DATABASE resume_ats_pro;
-Update database credentials in LoginPagePro.java:
+3. Configure Database
+Update the database credentials in src/main/java/com/example/pro/LoginPagePro.java:
 
 java
 private static final String DB_PASSWORD = "your_mysql_password";
-Build and Run
-Clone or download the project files
-
-Navigate to project directory:
-
+4. Build and Run
 bash
-cd ResumeATS_Pro
-Compile the project:
-
-bash
+# Compile the project
 mvn clean compile
-Run the application:
 
-bash
+# Run the application
 mvn exec:java
-Project Structure
+📁 Project Structure
 text
 ResumeATS_Pro/
-├── pom.xml
-├── src/
-│   └── main/
-│       └── java/
-│           └── com/
-│               └── example/
-│                   └── pro/
-│                       ├── LoginPagePro.java
-│                       └── ResumeATSPro.java
-└── target/ (generated)
-Usage Instructions
-1. User Registration
-Launch the application
+├── src/main/java/com/example/pro/
+│   ├── LoginPagePro.java      # Authentication and user management
+│   └── ResumeATSPro.java      # Main application with ATS scoring
+├── pom.xml                    # Maven configuration
+└── README.md
+💻 Usage
+Getting Started
+Register a new account or login with existing credentials
 
-Click "Register" to create a new account
+Upload your resume as a text file (.txt)
 
-Enter username and password (minimum 3 characters for username, 4 for password)
+Paste the job description you're targeting
 
-Registration automatically creates your user profile in the database
+Calculate your ATS score to see compatibility results
 
-2. User Login
-Enter registered credentials
+Review detailed analysis and improvement suggestions
 
-Click "Login" to access the main application
+ATS Scoring System
+The application calculates scores based on keyword matching:
 
-Session maintains user context throughout the application
+Excellent (80-100%): Strong match with job requirements
 
-3. Resume Upload
-Click "Upload Resume" button
+Good (60-79%): Good alignment, minor improvements needed
 
-Select a text file (.txt) containing your resume content
+Average (40-59%): Moderate match, consider adding relevant skills
 
-Supported content: plain text resumes
+Needs Work (0-39%): Significant keyword gaps detected
 
-File processing includes progress indication
+🔧 Technical Details
+Built With
+Java 11 - Core application logic
 
-4. Job Description Analysis
-Paste the job description in the designated text area
+Swing - User interface framework
 
-Ensure the description includes relevant keywords and requirements
+FlatLaf - Modern look and feel
 
-The system will analyze against your uploaded resume
+MySQL - Database management
 
-5. ATS Score Calculation
-Click "Calculate ATS Score" to generate compatibility results
+JDBC - Database connectivity
 
-View detailed breakdown including:
+Maven - Build automation and dependency management
 
-Overall match percentage
+Algorithm
+The ATS scoring uses intelligent keyword extraction:
 
-Keyword statistics
+Filters common stop words
 
-Matching keyword list
+Processes text case-insensitively
 
-Improvement recommendations
+Matches resume keywords against job requirements
 
-ATS Scoring Algorithm
-Keyword Extraction
-Processes text by splitting into individual words
+Provides detailed statistical breakdown
 
-Filters out common stop words (the, and, for, etc.)
+🎯 Key Components
+LoginPagePro
+User registration and authentication
 
-Considers words longer than 2 characters as potential keywords
+Database connection management
 
-Converts all text to lowercase for case-insensitive matching
+Secure credential validation
 
-Score Calculation
-text
-ATS Score = (Number of Matching Keywords / Total Job Description Keywords) * 100
-Score Interpretation
-80-100%: Excellent match - resume is well optimized
+ResumeATSPro
+File upload and processing
 
-60-79%: Good match - consider adding more relevant keywords
+Job description analysis
 
-40-59%: Average match - review job description for missing skills
+ATS score calculation
 
-0-39%: Poor match - major keyword gaps detected
+Results visualization
 
-Database Schema
-Users Table
-sql
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-File Support
-Currently Supported
-Text files (.txt) - Full support with direct content parsing
+📊 Sample Workflow
+User Registration → Database storage of credentials
 
-Planned Support
-PDF documents (.pdf) - Future implementation
+Resume Upload → Text file parsing and content extraction
 
-Word documents (.docx, .doc) - Future implementation
+Job Analysis → Keyword extraction from job description
 
-Customization
-UI Themes
-The application supports multiple themes through FlatLaf:
+Score Calculation → Compatibility percentage and matching keywords
 
-Dark theme (default)
+Results Display → Detailed breakdown with improvement suggestions
 
-Light theme
-
-Custom color schemes
-
-Stop Words Customization
-Modify the STOP_WORDS set in ResumeATSPro.java to add or remove filtered words based on specific industry requirements.
-
-Troubleshooting
+🐛 Troubleshooting
 Common Issues
 Database Connection Failed
 
 Verify MySQL service is running
 
-Check database credentials in LoginPagePro.java
+Check database credentials
 
-Ensure resume_ats_pro database exists
+Ensure database resume_ats_pro exists
 
-File Upload Errors
+File Upload Issues
 
-Use plain text (.txt) files only
+Use .txt files for guaranteed compatibility
 
 Check file permissions
 
-Ensure file is not open in another program
+Ensure files are not corrupted
 
-Compilation Errors
+Build Errors
 
 Verify JDK 11+ installation
 
 Check Maven configuration
 
-Ensure all dependencies in pom.xml
+Ensure all dependencies are resolved
 
-Performance Tips
-Keep resume files under 5000 characters for optimal performance
+🔮 Future Enhancements
+PDF and DOCX file support
 
-Use focused job descriptions for accurate scoring
+AI-powered resume suggestions
 
-Regular database maintenance for user management
+Multi-language support
 
-Development
-Adding New Features
-Follow MVC pattern for new components
+Export results to PDF
 
-Maintain database connection best practices
+Resume template library
 
-Use SwingWorker for long-running operations
+Advanced analytics dashboard
 
-Implement proper exception handling
+Web application version
 
-Code Structure
-LoginPagePro.java: Handles user authentication and registration
-
-ResumeATSPro.java: Main application with resume processing and scoring
-
-Database operations use PreparedStatement for security
-
-Swing components with modern FlatLaf styling
-
-License
-This project is for educational and personal use. Commercial use may require additional licensing.
-
-Support
-For technical support or feature requests, refer to the application documentation or contact the development team.
-
-Version History
-Version 2.0: Enhanced UI, progress indicators, detailed scoring
-
-Version 1.0: Basic ATS scoring with text file support
-
+🤝 Contributing
+We welcome contributions! Please feel free to submit pull requests or open issues for bugs and feature requests.
