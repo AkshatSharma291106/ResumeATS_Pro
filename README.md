@@ -273,14 +273,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📞 Support & Community
-
-- **Issues**: [GitHub Issues](https://github.com/yourusername/ResumeATS_Pro/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/ResumeATS_Pro/discussions)
-- **Email**: support@resumeatspro.com
-
----
-
 <div align="center">
 
 ### ⭐ Star us on GitHub if you find this project helpful!
