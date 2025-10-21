@@ -9,7 +9,7 @@
 
 **A professional desktop application that analyzes resume compatibility with job descriptions using advanced ATS scoring algorithms.**
 
-[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Development](#-development)
+[Features](#-features) • [Installation](#-installation) • [Development](#-development)
 
 </div>
 
