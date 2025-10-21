@@ -44,7 +44,6 @@ mvn clean compile
 # Run the application
 mvn exec:java
 📁 Project Structure
-text
 ResumeATS_Pro/
 ├── src/main/java/com/example/pro/
 │   ├── LoginPagePro.java      # Authentication and user management
